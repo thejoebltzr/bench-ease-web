@@ -1,11 +1,20 @@
 import React from "react";
-import { Container, Navbar } from "react-bootstrap";
+import { Container, Image, Navbar, Row } from "react-bootstrap";
 
-const Header = ({ title }) => {
+const Header = ({ title, userName, userImage }) => {
   return (
-    <Navbar bg="light">
+    <Navbar>
       <Container>
-        <Navbar.Brand>{title}</Navbar.Brand>
+        <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
+        <Navbar.Toggle />
+        <Navbar.Collapse className="justify-content-end">
+          <Image src={userImage} roundedCircle width={52} />
+
+          <div style={{ marginLeft: 16 }}>
+            <h5>{userName}</h5>
+            {/* <p>UI/UX Designer</p> */}
+          </div>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );

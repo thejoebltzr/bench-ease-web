@@ -3,6 +3,7 @@ import { Col, Container, Form, Row } from "react-bootstrap";
 import Sidebar from "../../components/shared/Sidebar/Sidebar";
 import Table from "../../components/shared/Table/Table";
 import Header from "../../components/shared/Header/Header";
+import { sampleUser } from "../../assets/assets";
 
 const Dashboard = () => {
   return (
@@ -12,7 +13,7 @@ const Dashboard = () => {
           <Sidebar />
         </Col>
         <Col xs={10}>
-          {/* <Header title="Profile Search" /> */}
+          <Header userImage={sampleUser} />
           <div style={{ padding: 24 }}>
             <h2>Profile Search</h2>
             <Col md={4} style={{ marginTop: 54 }}>

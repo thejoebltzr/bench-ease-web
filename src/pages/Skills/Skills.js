@@ -1,6 +1,8 @@
 import React from "react";
 import { Badge, Button, Col, Container, Form, Row } from "react-bootstrap";
 import Sidebar from "../../components/shared/Sidebar/Sidebar";
+import Header from "../../components/shared/Header/Header";
+import { sampleUser } from "../../assets/assets";
 
 const Skills = () => {
   const skills = ["Javascript", "ReactJS", "UI/Design", "PHP Development"];
@@ -12,6 +14,7 @@ const Skills = () => {
           <Sidebar />
         </Col>
         <Col xs={10}>
+          <Header userImage={sampleUser} />
           <div style={{ padding: 24 }}>
             <h2>Skill Search</h2>
             <p style={{ marginTop: 36 }}>
