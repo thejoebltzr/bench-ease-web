@@ -1,11 +1,11 @@
 import React from "react";
 import { Container, Navbar } from "react-bootstrap";
 
-const Header = () => {
+const Header = ({ title }) => {
   return (
     <Navbar bg="light">
       <Container>
-        <Navbar.Brand>BenchEase</Navbar.Brand>
+        <Navbar.Brand>{title}</Navbar.Brand>
       </Container>
     </Navbar>
   );

@@ -9,7 +9,7 @@ import {
   Row,
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { logo } from "../../assets/assets";
+import { illustration, logo } from "../../assets/assets";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -19,15 +19,31 @@ const Home = () => {
   };
 
   return (
-    <Container className=" ">
+    <Container className="border" style={{ marginTop: 120 }}>
       <Row>
-        <Col>
+        <Col style={{ padding: 110 }}>
           <Row>
-            <Col></Col>
             <Col>
-              <Image src={logo} width={215} />
+              <Image
+                src={illustration}
+                width={380}
+                style={{ display: "block" }}
+              />
+            </Col>
+            <Col>
+              <div>
+                <Image
+                  src={logo}
+                  width={215}
+                  style={{
+                    display: "block",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                  }}
+                />
+              </div>
 
-              <Form>
+              <Form style={{ marginTop: 46 }}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Username</Form.Label>
                   <Form.Control type="email" placeholder="Enter email" />
@@ -42,7 +58,8 @@ const Home = () => {
                   <Button
                     variant="primary"
                     type="submit"
-                    onClick={onLoginClick}>
+                    onClick={onLoginClick}
+                    style={{ marginTop: 28 }}>
                     Login
                   </Button>
                 </ButtonGroup>

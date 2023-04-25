@@ -10,7 +10,9 @@ const Settings = () => {
           <Sidebar />
         </Col>
         <Col xs={10}>
-          <h2>Settings</h2>
+          <div style={{ padding: 24 }}>
+            <h2>Settings</h2>
+          </div>
         </Col>
       </Row>
     </Container>
