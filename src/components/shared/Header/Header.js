@@ -5,7 +5,7 @@ const Header = ({ title, userName, userImage }) => {
   return (
     <Navbar>
       <Container>
-        <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
+        <Navbar.Brand href="#home">BenchEase</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Image src={userImage} roundedCircle width={52} />

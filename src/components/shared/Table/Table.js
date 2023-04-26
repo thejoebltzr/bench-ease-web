@@ -17,21 +17,42 @@ const Table = () => {
       <tbody>
         <tr>
           <td>1</td>
-          {Array.from({ length: 5 }).map((_, index) => (
-            <td key={index}>Table cell {index}</td>
-          ))}
+          {Array.from({ length: 5 }).map((_, index) => {
+            if (index === 4) {
+              return (
+                <td>
+                  <a href="/user-profile">View</a>
+                </td>
+              );
+            }
+            return <td key={index}>Table cell {index}</td>;
+          })}
         </tr>
         <tr>
           <td>2</td>
-          {Array.from({ length: 5 }).map((_, index) => (
-            <td key={index}>Table cell {index}</td>
-          ))}
+          {Array.from({ length: 5 }).map((_, index) => {
+            if (index === 4) {
+              return (
+                <td>
+                  <a href="/user-profile">View</a>
+                </td>
+              );
+            }
+            return <td key={index}>Table cell {index}</td>;
+          })}
         </tr>
         <tr>
           <td>3</td>
-          {Array.from({ length: 5 }).map((_, index) => (
-            <td key={index}>Table cell {index}</td>
-          ))}
+          {Array.from({ length: 5 }).map((_, index) => {
+            if (index === 4) {
+              return (
+                <td>
+                  <a href="/user-profile">View</a>
+                </td>
+              );
+            }
+            return <td key={index}>Table cell {index}</td>;
+          })}
         </tr>
       </tbody>
     </RBTable>
