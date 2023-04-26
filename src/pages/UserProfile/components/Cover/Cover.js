@@ -16,7 +16,7 @@ const Cover = () => {
 
         <Row style={{ position: "relative", top: -80 }}>
           <Col sm={2}>
-            <Image src={sampleUserLarge} width={157} />
+            <Image src={sampleUserLarge} width={157} rounded />
           </Col>
           <Col sm={10}>
             <h3 style={{ color: colors.white }}>John Doe</h3>
