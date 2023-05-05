@@ -1,0 +1,11 @@
+// CSS
+.step-label {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid;
+  }
+  .active {
+    background-color: rgb(254, 114, 93);
+  }
