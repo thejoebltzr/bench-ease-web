@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import {
   Button,
   ButtonGroup,
@@ -6,18 +6,18 @@ import {
   Container,
   Form,
   Image,
-  Row,
-} from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import { illustration, logo } from "../../assets/assets";
-import withAuth from "../../WithAuth";
+  Row
+} from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
+import { illustration, logo } from '../../assets/assets'
+import withAuth from '../../WithAuth'
 
 const Home = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const onLoginClick = () => {
-    navigate("/dashboard");
-  };
+    navigate('/dashboard')
+  }
 
   return (
     <Container className="border" style={{ marginTop: 120 }}>
@@ -28,7 +28,7 @@ const Home = () => {
               <Image
                 src={illustration}
                 width={380}
-                style={{ display: "block" }}
+                style={{ display: 'block' }}
               />
             </Col>
             <Col>
@@ -37,9 +37,9 @@ const Home = () => {
                   src={logo}
                   width={215}
                   style={{
-                    display: "block",
-                    marginLeft: "auto",
-                    marginRight: "auto",
+                    display: 'block',
+                    marginLeft: 'auto',
+                    marginRight: 'auto'
                   }}
                 />
               </div>
@@ -70,7 +70,7 @@ const Home = () => {
         </Col>
       </Row>
     </Container>
-  );
-};
+  )
+}
 
-export default withAuth(Home);
+export default withAuth(Home)

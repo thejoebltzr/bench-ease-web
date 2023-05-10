@@ -1,18 +1,24 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const withAuth = (Component) => {
-  return (props) => {
-    const navigate = useNavigate();
-    const isAuthenticated = !!localStorage.getItem('token');
+  const AuthenticatedComponent = (props) => {
+    const navigate = useNavigate()
+    const isAuthenticated = !!localStorage.getItem('token')
 
     if (!isAuthenticated) {
-      navigate('/login');
-      return null;
+      navigate('/login')
+      return null
     }
 
-    return <Component {...props} />;
-  };
-};
+    return <Component {...props} />
+  }
 
-export default withAuth;
+  // Enforce displayName rule
+  const componentName = Component.displayName || Component.name
+  AuthenticatedComponent.displayName = `withAuth(${componentName})`
+
+  return AuthenticatedComponent
+}
+
+export default withAuth

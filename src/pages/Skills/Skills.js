@@ -1,11 +1,11 @@
-import React from "react";
-import { Badge, Button, Col, Container, Form, Row } from "react-bootstrap";
-import Sidebar from "../../components/shared/Sidebar/Sidebar";
-import Header from "../../components/shared/Header/Header";
-import { sampleUser } from "../../assets/assets";
+import React from 'react'
+import { Badge, Button, Col, Container, Form, Row } from 'react-bootstrap'
+import Sidebar from '../../components/shared/Sidebar/Sidebar'
+import Header from '../../components/shared/Header/Header'
+import { sampleUser } from '../../assets/assets'
 
 const Skills = () => {
-  const skills = ["Javascript", "ReactJS", "UI/Design", "PHP Development"];
+  const skills = ['Javascript', 'ReactJS', 'UI/Design', 'PHP Development']
 
   return (
     <Container fluid>
@@ -26,7 +26,7 @@ const Skills = () => {
 
               {skills.map((skillItem) => (
                 <>
-                  <Badge bg="secondary">{skillItem}</Badge>{" "}
+                  <Badge bg="secondary">{skillItem}</Badge>{' '}
                 </>
               ))}
             </div>
@@ -36,7 +36,7 @@ const Skills = () => {
 
               {skills.map((skillItem) => (
                 <>
-                  <Badge bg="secondary">{skillItem}</Badge>{" "}
+                  <Badge bg="secondary">{skillItem}</Badge>{' '}
                 </>
               ))}
             </div>
@@ -57,7 +57,7 @@ const Skills = () => {
                 variant="primary"
                 type="submit"
                 // onClick={onLoginClick}
-                style={{ marginTop: 50, backgroundColor: "#FE725D" }}>
+                style={{ marginTop: 50, backgroundColor: '#FE725D' }}>
                 Continue
               </Button>
             </div>
@@ -65,7 +65,7 @@ const Skills = () => {
         </Col>
       </Row>
     </Container>
-  );
-};
+  )
+}
 
-export default Skills;
+export default Skills

@@ -1,20 +1,20 @@
-import React from "react";
-import { Col, Container, Image, Row } from "react-bootstrap";
-import { sampleUserLarge } from "../../../../assets/assets";
-import colors from "../../../../theme/colors";
+import React from 'react'
+import { Col, Container, Image, Row } from 'react-bootstrap'
+import { sampleUserLarge } from '../../../../assets/assets'
+import colors from '../../../../theme/colors'
 
 const Cover = () => {
   return (
     <Container>
-      <Row className="border" style={{ borderRadius: 10, overflow: "hidden" }}>
+      <Row className="border" style={{ borderRadius: 10, overflow: 'hidden' }}>
         <div
           style={{
             height: 136,
             zIndex: -1,
-            backgroundColor: colors.coral,
+            backgroundColor: colors.coral
           }}></div>
 
-        <Row style={{ position: "relative", top: -80 }}>
+        <Row style={{ position: 'relative', top: -80 }}>
           <Col sm={2}>
             <Image src={sampleUserLarge} width={157} rounded />
           </Col>
@@ -45,7 +45,7 @@ const Cover = () => {
         </Row>
       </Row>
     </Container>
-  );
-};
+  )
+}
 
-export default Cover;
+export default Cover

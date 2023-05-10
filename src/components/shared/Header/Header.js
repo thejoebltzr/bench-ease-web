@@ -1,7 +1,8 @@
-import React from "react";
-import { Container, Image, Navbar, Row } from "react-bootstrap";
+import React from 'react'
+import { Container, Image, Navbar } from 'react-bootstrap'
+import PropTypes from 'prop-types'
 
-const Header = ({ title, userName, userImage }) => {
+const Header = ({ userName, userImage }) => {
   return (
     <Navbar>
       <Container>
@@ -17,7 +18,12 @@ const Header = ({ title, userName, userImage }) => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
-};
+  )
+}
 
-export default Header;
+Header.propTypes = {
+  userName: PropTypes.string,
+  userImage: PropTypes.string
+}
+
+export default Header

@@ -1,9 +1,9 @@
-import React from "react";
-import { Col, Container, Form, Row } from "react-bootstrap";
-import Sidebar from "../../components/shared/Sidebar/Sidebar";
-import Table from "../../components/shared/Table/Table";
-import Header from "../../components/shared/Header/Header";
-import { sampleUser } from "../../assets/assets";
+import React from 'react'
+import { Col, Container, Form, Row } from 'react-bootstrap'
+import Sidebar from '../../components/shared/Sidebar/Sidebar'
+import Table from '../../components/shared/Table/Table'
+import Header from '../../components/shared/Header/Header'
+import { sampleUser } from '../../assets/assets'
 
 const Dashboard = () => {
   return (
@@ -32,7 +32,7 @@ const Dashboard = () => {
         </Col>
       </Row>
     </Container>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

@@ -1,5 +1,5 @@
-import React from "react";
-import { default as RBTable } from "react-bootstrap/Table";
+import React from 'react'
+import RBTable from 'react-bootstrap/Table'
 
 const Table = () => {
   return (
@@ -20,12 +20,12 @@ const Table = () => {
           {Array.from({ length: 5 }).map((_, index) => {
             if (index === 4) {
               return (
-                <td>
+                <td key={`1-${index}`}>
                   <a href="/user-profile">View</a>
                 </td>
-              );
+              )
             }
-            return <td key={index}>Table cell {index}</td>;
+            return <td key={index}>Table cell {index}</td>
           })}
         </tr>
         <tr>
@@ -33,12 +33,12 @@ const Table = () => {
           {Array.from({ length: 5 }).map((_, index) => {
             if (index === 4) {
               return (
-                <td>
+                <td key={`2-${index}`}>
                   <a href="/user-profile">View</a>
                 </td>
-              );
+              )
             }
-            return <td key={index}>Table cell {index}</td>;
+            return <td key={index}>Table cell {index}</td>
           })}
         </tr>
         <tr>
@@ -46,17 +46,17 @@ const Table = () => {
           {Array.from({ length: 5 }).map((_, index) => {
             if (index === 4) {
               return (
-                <td>
+                <td key={`3-${index}`}>
                   <a href="/user-profile">View</a>
                 </td>
-              );
+              )
             }
-            return <td key={index}>Table cell {index}</td>;
+            return <td key={index}>Table cell {index}</td>
           })}
         </tr>
       </tbody>
     </RBTable>
-  );
-};
+  )
+}
 
-export default Table;
+export default Table

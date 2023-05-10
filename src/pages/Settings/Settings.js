@@ -1,7 +1,7 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import Sidebar from "../../components/shared/Sidebar/Sidebar";
-import Header from "../../components/shared/Header/Header";
+import React from 'react'
+import { Col, Container, Row } from 'react-bootstrap'
+import Sidebar from '../../components/shared/Sidebar/Sidebar'
+import Header from '../../components/shared/Header/Header'
 
 const Settings = () => {
   return (
@@ -18,7 +18,7 @@ const Settings = () => {
         </Col>
       </Row>
     </Container>
-  );
-};
+  )
+}
 
-export default Settings;
+export default Settings

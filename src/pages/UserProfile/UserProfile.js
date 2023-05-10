@@ -1,9 +1,9 @@
-import React from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
-import Sidebar from "../../components/shared/Sidebar/Sidebar";
-import { sampleUser } from "../../assets/assets";
-import Header from "../../components/shared/Header/Header";
-import Cover from "./components/Cover/Cover";
+import React from 'react'
+import { Card, Col, Container, Row } from 'react-bootstrap'
+import Sidebar from '../../components/shared/Sidebar/Sidebar'
+import { sampleUser } from '../../assets/assets'
+import Header from '../../components/shared/Header/Header'
+import Cover from './components/Cover/Cover'
 
 const UserProfile = () => {
   return (
@@ -31,7 +31,7 @@ const UserProfile = () => {
         </Col>
       </Row>
     </Container>
-  );
-};
+  )
+}
 
-export default UserProfile;
+export default UserProfile
