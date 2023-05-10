@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Button,
   ButtonGroup,
@@ -10,14 +10,43 @@ import {
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { illustration, logo } from "../../assets/assets";
-import withAuth from "../../WithAuth";
 
-const Home = () => {
+const Login = () => {
   const navigate = useNavigate();
 
   const onLoginClick = () => {
     navigate("/dashboard");
   };
+
+  const grant_type = 'password';
+  const client_id = '991776b6-5d85-4149-91a5-5a627e247c00';
+  const client_secret = 'yhe2Uzjj4SI3t8KRPxQIqtVnu8VEiKC3FOmU26Kx';
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch('https://brm.kierquebral.com/oauth/token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ grant_type, client_id, client_secret, username, password })
+      });
+
+      if (!response.ok) {
+        throw new Error('Authentication failed');
+      }
+
+      const { token } = await response.json();
+      localStorage.setItem('token', token);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 
   return (
     <Container className="border" style={{ marginTop: 120 }}>
@@ -44,22 +73,21 @@ const Home = () => {
                 />
               </div>
 
-              <Form style={{ marginTop: 46 }}>
+              <Form style={{ marginTop: 46 }} onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Username</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
+                  <Form.Control type="email" placeholder="Enter email" onChange={(event) => setUsername(event.target.value)} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Password" />
+                  <Form.Control type="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)} />
                 </Form.Group>
 
                 <ButtonGroup className="d-flex">
                   <Button
                     variant="primary"
                     type="submit"
-                    onClick={onLoginClick}
                     style={{ marginTop: 28 }}>
                     Login
                   </Button>
@@ -73,4 +101,4 @@ const Home = () => {
   );
 };
 
-export default withAuth(Home);
+export default Login;
