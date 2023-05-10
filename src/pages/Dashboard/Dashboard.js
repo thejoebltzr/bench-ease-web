@@ -4,6 +4,7 @@ import Sidebar from '../../components/shared/Sidebar/Sidebar'
 import Table from '../../components/shared/Table/Table'
 import Header from '../../components/shared/Header/Header'
 import { sampleUser } from '../../assets/assets'
+import withAuth from '../../WithAuth'
 
 const Dashboard = () => {
   return (
@@ -35,4 +36,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default withAuth(Dashboard)

@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const withAuth = (Component) => {
   const AuthenticatedComponent = (props) => {
     const navigate = useNavigate()
     const isAuthenticated = !!localStorage.getItem('token')
+
+    useEffect(() => {
+      if (!isAuthenticated) {
+        navigate('/login')
+      }
+    }, [isAuthenticated, navigate])
 
     if (!isAuthenticated) {
       navigate('/login')
