@@ -21,19 +21,20 @@ const Login = () => {
   const grant_type = 'password';
   const client_id = '991776b6-5d85-4149-91a5-5a627e247c00';
   const client_secret = 'yhe2Uzjj4SI3t8KRPxQIqtVnu8VEiKC3FOmU26Kx';
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [formData, setFormData] = useState({
+    username: '',
+    password: ''
+  });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     try {
       const response = await fetch('https://brm.kierquebral.com/oauth/token', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ grant_type, client_id, client_secret, username, password })
+        body: JSON.stringify({ grant_type, client_id, client_secret, ...formData })
       });
 
       if (!response.ok) {
@@ -45,6 +46,14 @@ const Login = () => {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
   };
 
 
@@ -74,14 +83,26 @@ const Login = () => {
               </div>
 
               <Form style={{ marginTop: 46 }} onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3" controlId="formEmail">
                   <Form.Label>Username</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" onChange={(event) => setUsername(event.target.value)} />
+                  <Form.Control 
+                    type="email" 
+                    name="username"
+                    placeholder="Enter email" 
+                    value={formData.username}
+                    onChange={handleChange}
+                  />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Group className="mb-3" controlId="formPassword">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)} />
+                  <Form.Control 
+                    type="password" 
+                    name="password"
+                    placeholder="Password" 
+                    value={formData.password}
+                    onChange={handleChange}
+                  />
                 </Form.Group>
 
                 <ButtonGroup className="d-flex">
