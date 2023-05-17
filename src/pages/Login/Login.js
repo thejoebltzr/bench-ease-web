@@ -14,9 +14,6 @@ import { illustration, logo } from '../../assets/assets'
 const Login = () => {
   const navigate = useNavigate()
 
-  const grantType = 'password'
-  const clientId = '991776b6-5d85-4149-91a5-5a627e247c00'
-  const clientSecret = 'yhe2Uzjj4SI3t8KRPxQIqtVnu8VEiKC3FOmU26Kx'
   const [formData, setFormData] = useState({
     username: '',
     password: ''
@@ -25,20 +22,28 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const response = await fetch('https://brm.kierquebral.com/oauth/token', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ grant_type: grantType, client_id: clientId, client_secret: clientSecret, ...formData })
-      })
+      const formdata = new FormData()
+      formdata.append('grant_type', 'password')
+      formdata.append('client_id', '991776b6-5d85-4149-91a5-5a627e247c00')
+      formdata.append('client_secret', 'yhe2Uzjj4SI3t8KRPxQIqtVnu8VEiKC3FOmU26Kx')
+      formdata.append('username', formData.username)
+      formdata.append('password', formData.password)
+      formdata.append('scope', '')
 
+      const requestOptions = {
+        method: 'POST',
+        body: formdata,
+        redirect: 'follow'
+      }
+
+      const response = await fetch('https://brm.kierquebral.com/oauth/token', requestOptions)
       if (!response.ok) {
         throw new Error('Authentication failed')
       }
 
-      const { token } = await response.json()
-      localStorage.setItem('token', token)
+      // eslint-disable-next-line camelcase
+      const { access_token } = await response.json()
+      localStorage.setItem('token', access_token)
       navigate('/')
     } catch (error) {
       console.error(error)
