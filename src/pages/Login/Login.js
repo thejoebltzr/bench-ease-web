@@ -22,7 +22,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-     const formdata = new FormData()
+      const formdata = new FormData()
       formdata.append('grant_type', 'password')
       formdata.append('client_id', '991776b6-5d85-4149-91a5-5a627e247c00')
       formdata.append('client_secret', 'yhe2Uzjj4SI3t8KRPxQIqtVnu8VEiKC3FOmU26Kx')
@@ -33,8 +33,8 @@ const Login = () => {
       const requestOptions = {
         method: 'POST',
         body: formdata,
-        redirect: 'follow'
-        mode: 'no-cors',
+        redirect: 'follow',
+        mode: 'no-cors'
       }
 
       const response = await fetch('https://brm.kierquebral.com/oauth/token', requestOptions)
