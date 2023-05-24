@@ -48,17 +48,17 @@ const Login = () => {
       //   mode: 'no-cors'
       // }
 
-      const response = await fetch('https://dunhilldale.com/bench-ease/public/oauth/token', {
+      const response = await fetch('https://brm.kierquebral.com/oauth/token', {
         method: 'POST',
+        redirect: 'follow',
         body: {
           grant_type: 'password',
           client_id: '98fb8a9e-b05e-40e0-a61d-cd478a5709eb',
           client_secret: 'LhNsTIrsL3tJcDM141ihAHTogQpc7gYOc5kjYrUg',
-          username: 'admin@sample.com',
+          username: 'employee@sample.com',
           password: 'sample',
           scope: ''
-        },
-        mode: 'no-cors'
+        }
       })
 
       console.log(response)
