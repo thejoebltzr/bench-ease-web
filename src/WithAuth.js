@@ -19,9 +19,9 @@ const withAuth = (Component) => {
           const decodedToken = jwt_decode(token)
           // console.log('DecodedToken: ', decodedToken)
           const userId = decodedToken.sub
-          // const liveOrigin = 'https://brm.kierquebral.com'
-          const testOrigin = 'http://127.0.0.1:8180'
-          const endpoint = testOrigin + `/api/v1/users/${userId}`
+          const origin = 'https://brm.kierquebral.com'
+          // const origin = 'http://127.0.0.1:8180'
+          const endpoint = origin + `/api/v1/users/${userId}`
           const response = await axios.get(endpoint, {
             headers: {
               Accept: 'application/json',

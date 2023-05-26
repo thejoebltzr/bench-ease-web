@@ -37,9 +37,9 @@ const Login = () => {
         redirect: 'follow'
       }
 
-      // const liveOrigin = 'https://brm.kierquebral.com'
-      const testOrigin = 'http://127.0.0.1:8180'
-      const response = await fetch(testOrigin + '/api/v1/auth/token', requestOptions)
+      const origin = 'https://brm.kierquebral.com'
+      // const origin = 'http://127.0.0.1:8180'
+      const response = await fetch(origin + '/api/v1/auth/token', requestOptions)
       if (!response.ok) {
         throw new Error('Authentication failed')
       }
