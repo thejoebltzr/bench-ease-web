@@ -7,9 +7,9 @@ import jwt_decode from 'jwt-decode'
 const withAuth = (Component) => {
   const AuthenticatedComponent = (props) => {
     const navigate = useNavigate()
-    const [loading, setLoading] = useState(true)
-    const [user, setUser] = useState(null)
-    const [isUserNew, setIsUserNew] = useState(false)
+    var [loading, setLoading] = useState(true)
+    var [user, setUser] = useState(null)
+    var [isUserNew, setIsUserNew] = useState(false)
     const isAuthenticated = !!localStorage.getItem('token')
 
     useEffect(() => {
@@ -17,17 +17,21 @@ const withAuth = (Component) => {
         try {
           const token = localStorage.getItem('token')
           const decodedToken = jwt_decode(token)
-          console.log('DecodedToken: ', decodedToken)
+          // console.log('DecodedToken: ', decodedToken)
           const userId = decodedToken.sub
-          const endpoint = `https://brm.kierquebral.com/api/v1/users/${userId}`
-
+          const origin = 'https://brm.kierquebral.com'
+          // const origin = 'http://127.0.0.1:8180'
+          const endpoint = origin + `/api/v1/users/${userId}`
           const response = await axios.get(endpoint, {
             headers: {
+              Accept: 'application/json',
               Authorization: `Bearer ${localStorage.getItem('token')}`
             }
           })
           setUser(response.data && response.data.result)
           setIsUserNew(response.data && response.data.result && Boolean(response.data.result.attributes.is_new))
+          user = (response.data && response.data.result)
+          isUserNew = (response.data && response.data.result && Boolean(response.data.result.attributes.is_new))
           setLoading(false)
 
           if (isUserNew) {
