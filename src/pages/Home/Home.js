@@ -10,12 +10,45 @@ import {
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { illustration, logo } from "../../assets/assets";
+import axios from "axios";
 
 const Home = () => {
   const navigate = useNavigate();
 
   const onLoginClick = () => {
-    navigate("/dashboard");
+    
+    axios.post("https://brm.kierquebral.com/oauth/token" ,{
+        grant_type:'password', 
+        client_id: '992f56da-abc9-4fb1-8ff2-5466e6e0c33f',
+        client_secret: 'Q6cMnm9EVzPb5abG7Jh8iXHM1AW4GwLIS9dJyVjK',
+        username: 'employee@sample.com',
+        password: 'sample'
+    }, {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+      }
+    }).then((response) => {
+      console.log(response.data)
+    }).catch((error) => {
+      console.log(error)
+    })
+  //   const requestOptions = {
+  //     method: 'POST',
+  //     // headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify(
+  //       { grant_type:'password', 
+  //         client_id: '992f56da-abc9-4fb1-8ff2-5466e6e0c33f',
+  //         client_secret: 'Q6cMnm9EVzPb5abG7Jh8iXHM1AW4GwLIS9dJyVjK',
+  //         username: 'employee@sample.com',
+  //         password: 'sample'
+  //       }
+  //     )
+  // };
+
+  //   fetch("https://brm.kierquebral.com/oauth/token",requestOptions )
+  //   .then(response => console.log(response.status))
+  //   .catch(error => console.log(error))
+    navigate("/user-profile");
   };
 
   return (

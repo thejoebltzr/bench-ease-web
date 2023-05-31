@@ -1,5 +1,5 @@
 import React from "react";
-import {  Badge, Card, Col, Container, Row } from "react-bootstrap";
+import {  Badge, Button, Card, Col, Container, Row } from "react-bootstrap";
 import Sidebar from "../../components/shared/Sidebar/Sidebar";
 import { sampleUser } from "../../assets/assets";
 import Header from "../../components/shared/Header/Header";
@@ -42,7 +42,9 @@ const UserProfile = () => {
           <Header userImage={sampleUser} />
 
           <Cover />
+          <Button>Add Skill</Button>
           <Card style={{marginTop:24, marginBottom:24, padding:16}}>
+          
             <Container >
               <h6>Primary Skills</h6>
               <div>

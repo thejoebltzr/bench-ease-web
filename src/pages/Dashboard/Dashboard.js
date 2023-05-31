@@ -6,6 +6,14 @@ import Header from "../../components/shared/Header/Header";
 import { sampleUser } from "../../assets/assets";
 
 const Dashboard = () => {
+
+  const DATA = [
+    { id: "2021-1578", name:"Doe, John", position:"UI/UX Designer", 
+      primary_skills:"Javascript, ReactJS, PHP Dev, WordPress Dev, UI Design...",
+      additional_skills:"Quality Assurance, Automation Testing, HTML/CSS..."
+    },
+  ]
+
   return (
     <Container fluid>
       <Row>
@@ -26,7 +34,7 @@ const Dashboard = () => {
             </Col>
 
             <div style={{ marginTop: 42 }}>
-              <Table />
+              <Table data={DATA} />
             </div>
           </div>
         </Col>
