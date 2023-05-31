@@ -5,7 +5,6 @@ import Dashboard from '../pages/Dashboard/Dashboard'
 import Skills from '../pages/Skills/Skills'
 import Settings from '../pages/Settings/Settings'
 import UserProfile from '../pages/UserProfile/UserProfile'
-import Login from '../pages/Login/Login'
 import Wizard from '../pages/Wizard/Wizard'
 
 const router = createBrowserRouter([
@@ -14,7 +13,6 @@ const router = createBrowserRouter([
   { path: '/skills', element: <Skills /> },
   { path: '/settings', element: <Settings /> },
   { path: '/user-profile', element: <UserProfile /> },
-  { path: '/login', element: <Login /> },
   { path: '/wizard', element: <Wizard /> }
 ])
 

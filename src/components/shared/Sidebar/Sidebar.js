@@ -19,30 +19,6 @@ const Sidebar = () => {
           }}
         />
       </div>
-
-      <Nav.Item>
-        <Nav.Link
-          href="/dashboard"
-          style={{ color: '#FFF', fontWeight: 'bold' }}>
-          Dashboard
-        </Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link
-          eventKey="link-1"
-          href="/skills"
-          style={{ color: '#FFF', fontWeight: 'bold' }}>
-          Skills
-        </Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link
-          eventKey="link-2"
-          href="/settings"
-          style={{ color: '#FFF', fontWeight: 'bold' }}>
-          Settings
-        </Nav.Link>
-      </Nav.Item>
       <Nav.Item>
         <Nav.Link
           eventKey="link-3"
