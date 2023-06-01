@@ -4,8 +4,26 @@ import Sidebar from '../../components/shared/Sidebar/Sidebar'
 import Header from '../../components/shared/Header/Header'
 import { sampleUser } from '../../assets/assets'
 
+import axios from 'axios';
+
 const Skills = () => {
-  const skills = ['Javascript', 'ReactJS', 'UI/Design', 'PHP Development']
+  const [skills, setSkills] = useState([]);
+
+  useEffect(() => {
+    loadSkills();
+  });
+
+  const loadSkills = async () => {
+    try {
+      await axios.get('http://ec2-3-1-102-218.ap-southeast-1.compute.amazonaws.com:8181/benchease/v1/hotskills')
+      .then((response) => {
+        console.log(response.data)
+        setSkills(response.data.result);
+      })
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
 
   return (
     <Container fluid>
@@ -24,20 +42,20 @@ const Skills = () => {
             <div style={{ marginTop: 26 }}>
               <h5>HOT SKILLS</h5>
 
-              {skills.map((skillItem) => (
-                <>
-                  <Badge bg="secondary">{skillItem}</Badge>{' '}
-                </>
+              {skills.map((skill) => (
+                <span key={ skill.id }>
+                  <Badge bg="secondary">{ skill.title }</Badge>{' '}
+                </span>
               ))}
             </div>
 
             <div style={{ marginTop: 72 }}>
               <h5>OTHER SKILLS</h5>
 
-              {skills.map((skillItem) => (
-                <>
-                  <Badge bg="secondary">{skillItem}</Badge>{' '}
-                </>
+              {skills.map((skill) => (
+                <span key={ skill.id }>
+                  <Badge bg="secondary">{ skill.name }</Badge>{' '}
+                </span>
               ))}
             </div>
 
@@ -65,7 +83,7 @@ const Skills = () => {
         </Col>
       </Row>
     </Container>
-  )
-}
+  );
+};
 
-export default Skills
+export default Skills;
