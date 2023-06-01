@@ -24,7 +24,7 @@ const HistoryItem = ({ item }) => {
 const UserProfile = () => {
   const primarySkills = ['Javascript', 'ReactJS', 'PHP Development', 'Wordpress Development', 'UI Design']
   const additionalSkills = ['Quality Assurance', 'Automation Testing', 'HTML/CSS']
-  const skills = ['Javascript', 'ReactJS', 'PHP Development', 'Wordpress Development', 'UI Design']
+  const [skills, setSkills] = useState([])
 
   const [showSkillModal, setShowSkillModal] = useState(false)
   const [selectedSkillName, setSelectedSkillName] = useState('Select a skill')
@@ -61,7 +61,8 @@ const UserProfile = () => {
           Authorization: `Bearer ${userToken}`
         }
       }).then((response) => {
-        console.log(response.data)
+        console.log(response.data.result)
+        setSkills(response.data?.result)
       })
     } catch (error) {
       console.log(error.message)
@@ -118,9 +119,9 @@ const UserProfile = () => {
       </Modal.Header>
       <Modal.Body>
         <p><b>Skill Name</b></p>
-        <DropdownButton title={selectedSkillName}>
+        <DropdownButton title={selectedSkillName?.attributes?.title ?? 'Select a skill'}>
           {skills?.map((skillItem, index) => (
-            <DropdownItem key={skillItem + index} onClick={() => setSelectedSkillName(skillItem)}>{skillItem}</DropdownItem>
+            <DropdownItem key={skillItem + index} onClick={() => setSelectedSkillName(skillItem)}>{skillItem.attributes.title}</DropdownItem>
           ))}
         </DropdownButton>
         <div style={{ marginTop: 24 }}>

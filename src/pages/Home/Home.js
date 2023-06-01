@@ -20,12 +20,11 @@ const Home = () => {
 
   const onLoginClick = async (event) => {
     event.preventDefault()
-    console.log(userLogin)
     try {
       const { access_token: accessToken } = await axios.post('https://brm.kierquebral.com/oauth/token', {
         grant_type: 'password',
-        client_id: '992f56da-abc9-4fb1-8ff2-5466e6e0c33f',
-        client_secret: 'Q6cMnm9EVzPb5abG7Jh8iXHM1AW4GwLIS9dJyVjK',
+        client_id: '994da195-3c54-47f5-8022-57da72d56148',
+        client_secret: '0bzG2xAsOtQypRSNAxgN8Lqc53U0DS2TBencfyiT',
         username: userLogin.username,
         password: userLogin.password
       }, {
@@ -37,6 +36,7 @@ const Home = () => {
       })
       // eslint-disable-next-line camelcase
       // const { access_token } = await response.json()
+      console.log(accessToken)
       localStorage.setItem('token', accessToken)
       navigate('/user-profile')
     } catch (error) {
